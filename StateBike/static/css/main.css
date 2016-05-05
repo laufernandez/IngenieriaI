@@ -1,0 +1,92 @@
+body {
+	background-color: white;
+    margin: 40px 0 70px 0;
+}
+.btn {
+	display: block;
+    margin: 15px 0px 0px 0px;
+}
+
+input[type="submit"] {
+        margin: 10px 0px 0px 0px;
+        width: 100%;
+}
+
+/* Parte nuestra ---------- */
+
+#notifications-panel {
+    background:#EEE;
+    float:right;
+    min-height:200px;
+    width:400px;
+    position:relative;
+    margin-right:70px;
+    border-radius:12px;
+    border:1px solid black;
+}
+
+#notifications-panel h2 {
+    margin-left:25px;
+    margin-top:15px;
+}
+
+#notifications-panel ul {
+    list-style-type:none;
+    background-color:#FEFEFE;
+    padding:0;
+}
+
+#notifications-panel ul li .name {
+    font-weight:bold;
+}
+
+#notifications-panel ul li .date {
+    color:#777;
+    display:block;
+    font-size:12px;
+}
+
+#notifications-panel ul li {
+    padding:6px 25px;
+}
+
+#notifications-panel ul li:hover {
+    background-color:#eee;
+}
+
+#admin-actions {
+    margin-top:30px;
+}
+
+#admin-actions ul {
+    list-style-type:none;
+}
+
+#admin-actions ul li {
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+#clients-table {
+
+    border:1px solid black;
+    width: 600px;
+    margin:0 auto;
+    margin-top: 50px;
+}
+
+#clients-table td:nth-child(1){
+    border-right:1px solid black;
+    width: 300px;
+}
+
+#clients-table tr {
+    text-align: center;
+    height:40px;
+}
+
+#clients-table tr:nth-child(1){
+    border:1px solid black;
+    font-size:21px;
+    height:45px;
+}

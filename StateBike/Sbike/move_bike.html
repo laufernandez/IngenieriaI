@@ -1,0 +1,42 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %}Move Bike{% endblock title %}
+
+{% block content %}
+
+<form method="post" id="stationform">
+	{% csrf_token %}
+	{% if stations_from %}
+		<h2>From Station</h2>
+		<select name="select_from" class="form-control" form="stationform">
+		{% for station in stations_from %}
+	  		<option value={{station.id}} >{{station.name}}</option>
+		{% endfor %}
+		</select>
+		<input class="btn btn-default" type="submit" value="Select">
+
+	{% elif stations_to %}
+		<h2>To Station</h2>
+		<select name="select_to" class="form-control" form="stationform">
+		{% for station in stations_to %}
+	  		<option value={{station.id}} >{{station.name}}</option>
+		{% endfor %}
+		</select>
+		<input class="btn btn-default" type="submit" value="Select">
+
+	{% elif max_bikes%}
+		<h2>Bikes:</h2>
+		<select name="max_bikes" class="form-control" form="stationform">
+		{% for i in max_bikes %}
+	  		<option value={{i}} >{{i}}</option>
+		{% endfor %}
+		</select>
+	<input class="btn btn-default" type="submit" value="Move">
+	{% else %}
+	<h1>No Stations Created!</h1>
+	{% endif %}
+</form>
+<a class="btn btn-default "href="/webprofile">Back</a>
+
+
+{% endblock content %}

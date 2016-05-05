@@ -1,0 +1,50 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %}Status de Bicicleta{% endblock title %}
+
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+
+    {% if brokenbikes %}
+    <h2>Broken:</h2>
+    <br>
+        <table class="table table-hover" border="0" align="center" width=300>
+        <tr>
+            <th scope="col" width=100>Select </th>
+            <th scope="col" width=100>Id</th>
+            <th scope="col" width=100>Station</th>
+        </tr>
+        {% for bike in brokenbikes %}
+            <tr>
+                <td width=100><input name="bike_id" type="radio" value="{{ bike.id }}"/></td>
+                <td width=100>{{ bike.id }} </td>
+                <td width=100>{{ bike.station.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <input type="submit" class="btn btn-default" name = "Action" value="Repair" />
+    {% endif %}
+    {% if availablebikes %}
+    <h2>Available</h2><br>
+    <table class="table table-hover" border="0" align="center" width=300>
+        <tr>
+            <th scope="col" width=100>Select </th>
+            <th scope="col" width=100>Id</th>
+            <th scope="col" width=100>Station</th>
+        </tr>
+        {% for bike in availablebikes %}
+            <tr>
+                <td width=100><input name="bike_id" type="radio" value="{{ bike.id }}"/></td>
+                <td width=100>{{ bike.id }} </td>
+                <td width=100>{{ bike.station.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" class="btn btn-default" name = "Action" value="Set As Broken" />
+    {% endif %}
+    <a class="btn btn-default "href="/webprofile">Back</a>
+
+</form>
+{% endblock content %}

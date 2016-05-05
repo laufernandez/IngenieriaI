@@ -1,0 +1,46 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} Admin Profile {% endblock title %}
+
+{% block content %}
+    {% if message %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endif %}
+
+<h1>Admin Profile - {{ username }} </h1>
+<div id="notifications-panel">
+  <h2>Notifications</h2>
+  <ul>
+    {% for not in notif %}
+    <li>The station <span class="name">{{ not.station.name }}</span> has run out of bikes! <span class="date">{{ not.date }}</span></li>
+    {% endfor %}
+
+    <!-- Ejemplo de cómo quedaría:
+    <li>The station <span class="name">San Martín</span> has run out of bikes! <span class="date">2015-05-19 12:24:02</span></li>
+    -->
+  </ul>
+</div>
+<div id="admin-actions">
+<ul>
+  <li><a href="/createstation/">Create Station</a></li>
+  <li><a href="/movebike">Move Bicycles</a></li>
+  <li><a href="/employeeregister">Register Employee</a></li>
+  <li><a href="/assignemployee">Assign Stations to Employee</a></li>
+  <li><a href="/unassignemployee">Unassign Employee</a></li>
+  <li><a href="/stations">View Stations</a></li>
+  <li><a href="/addbikes/">Add Bicycles</a></li>
+  <li><a href="/viewclients/">View Registered Users</a></li>
+</ul>
+</div>
+<h2>Personal Data</h2>
+<hr />
+<ul>
+  <li><strong>Name:</strong> {{ fname }} {{ lname }}</li>
+  <li><strong>DNI:</strong> {{ dni }}</li>
+  <li><strong>Phone Number:</strong> {{ phone }}</li>
+  <li><strong>Email:</strong> {{ email }}</li>
+
+{% endblock content %}
+

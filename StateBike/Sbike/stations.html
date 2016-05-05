@@ -1,0 +1,32 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} Stations {% endblock title %}
+
+{% block content %}
+    <h1>List of Stations</h1>
+        <table class="table table-hover" border="0" align="center">
+            <tr>
+	        <td><b>Name</b></td>
+	        <td><b>Address</b></td>
+	        <td><b>Bikes in Stock</b></td>
+	        {% if request.session.user_type == 'admin' %}
+	        	<td><b>Employee</b></td>
+	        {% endif %}
+	        {% for st in stations %}
+            </tr>
+	    <td>{{st.name}}</td>
+	    <td>{{st.address}}</td>
+	    <td>{{st.stock}}</td>
+	    {% if request.session.user_type == 'admin' %}
+		    <td>{{st.employee}}</td>
+    	{% endif %}
+            <tr>
+	        {% endfor %}
+            </tr>
+        </table>
+        {% if request.session.type == 'web'%}
+        <a class="btn btn-default "href="/webprofile">OK</a>
+        {% else %}
+		<a class="btn btn-default "href="/stationprofile">OK</a>
+		{% endif %}
+{% endblock content %}

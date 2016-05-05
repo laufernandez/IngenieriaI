@@ -1,0 +1,24 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %}Unassign Employee{% endblock title %}
+
+{% block content %}
+
+{% if employees %}
+<ul>
+<form method="post" id="employeeform">
+	{% csrf_token %}
+
+	<h2>Select a Employee</h2>
+	<select name="selectemployee" class="form-control" form="employeeform">
+	{% for employee in employees %}
+	  <option value={{employee.dni}} >{{employee.user}}</option>
+	{% endfor %}
+	</select>
+	<input class="btn btn-default" type="submit" value="Select">
+
+</form>
+{% endif %}
+<a class="btn btn-default "href="/webprofile">Back</a>
+</ul>
+{% endblock content %}

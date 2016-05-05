@@ -1,0 +1,19 @@
+{% extends 'Sbike/base.html' %}
+
+{% load staticfiles %}
+{% block title %} Welcome State Bike {% endblock title %}
+
+
+
+{% block content %}
+	<center>
+	<div class="page-header">
+			<h1>WELCOME!</h1>
+	</div>
+		<img  src ="{%static "img/bike.png" %}"/>	
+		<a class="btn btn-primary" href="/weblogin">Web Login</a>
+		<a class="btn btn-primary" href="/stationlogin">Station Login</a>
+	</center>
+
+{% endblock content %}
+

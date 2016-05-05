@@ -1,0 +1,34 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} Profile of {{ username }} - StateBike {% endblock title %}
+{% block content %}
+
+<h1>User Profile: <strong>{{ username }}</strong> </h1>
+{% if read_only %}
+<a href="..">Get Back</a>
+{% endif %}
+<hr />
+<h2>Personal Data</h2>
+<ul>
+  <li><strong>Name:</strong> {{ fname }} {{ lname }}</li>
+  <li><strong>DNI:</strong> {{ dni }}</li>
+  <li><strong>Phone Number:</strong> {{ phone }}{% if not read_only %}<a href="/editprofile/phone"> Edit </a>{% endif %}</li>
+  <li><strong>Email:</strong> {{ email }}{% if not read_only %}<a href="/editprofile/email"> Edit </a>{% endif %}</li>
+</ul>
+<hr />
+<h2>Credit Card Data</h2>
+{% if not read_only %}
+<h4><a href="/editprofile/card"> Edit </a></h4>
+{% endif %}
+<ul>
+  <li><strong>Card Number:</strong> {{ card_number }}</li>
+  <li><strong>Expiration Date:</strong> {{ exp_date }}</li>
+  <li><strong>Security Code:</strong> {{ sec_code }}</li>
+</ul>
+{% if not read_only %}
+<hr />
+<a class="btn btn-default" href="/stations">View Stations</a>
+<a class="btn btn-default" href="/editpassword">Change Password</a>
+{% endif %}
+
+{% endblock content %}

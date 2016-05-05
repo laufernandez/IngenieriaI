@@ -1,0 +1,22 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} View Registered Users {% endblock title %}
+
+{% block content %}
+    {% if message %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endif %}
+
+<h1>View Registered Users  </h1>
+<table class="table table-hover" border="0" align="center">
+<tr> <td><strong>Clients</strong></td> <td><strong>State</strong></td></tr>
+  {% for cli in clients %}
+    <tr><td><a href="{{ cli.username }}">{{cli.fname}} {{cli.lname}}</a></td><td>{% if cli.sanction %} Sanctioned {% else %} Not sanctioned {% endif %}</td></tr>
+  {% endfor %}
+
+</table>
+<a class="btn btn-default "href="/webprofile">OK</a>
+
+{% endblock content %}

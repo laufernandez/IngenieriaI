@@ -1,0 +1,22 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %}Bike Loan{% endblock title %}
+
+{% block content %}
+{% if bikes 	%}
+<ul><h1>Select a Bike</h1>
+<form method="post" id="bikesform">
+{% csrf_token %}
+	<select name="select" class="form-control" form="bikesform">
+	{% for bike in bikes %}
+	  <option value={{bike.id}} >{{bike.id}}</option>
+	{% endfor %}
+	</select>
+	<input class="btn btn-default" type="submit" value="Select">
+</form>	
+{% else %}
+<h1>Sorry! No Bikes Available!</h1>
+<a class="btn btn-default "href="/stationprofile">OK</a>
+{% endif %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} Profile of {{ username }} - StateBike {% endblock title %}
+{% block content %}
+<h1>User Profile of {{ username }} </h1>
+<hr />
+<h2>Personal Data</h2>
+<ul>
+  <li>Name: {{ fname }} {{ lname }}</li>
+  <li>DNI: {{ dni }}</li>
+  <li>Phone Number: {{ phone }}</li>
+  <li>Email: {{ email }}</li>
+</ul>
+<hr />
+<h2>Credit Card Data</h2>
+<ul>
+  <li>Card Number: {{ card_number }}</li>
+  <li>Expiration Date: {{ exp_date }}</li>
+  <li>Security Code: {{ sec_code }}</li>
+</ul>
+<hr />
+<a class="btn btn-default" href="/bikeloan">Take Bike</a>
+<a class="btn btn-default" href="/giveback">Give Back</a>
+<a class="btn btn-default" href="/stations">View Stations</a>
+
+{% endblock content %}

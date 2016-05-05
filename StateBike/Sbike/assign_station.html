@@ -1,0 +1,24 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %}Assign Station{% endblock title %}
+
+{% block content %}
+
+{% if stations %}
+<ul>
+<form method="post" id="stationform">
+	{% csrf_token %}
+
+	<h2>Select a Station</h2>
+	<select name="selectstation" class="form-control" form="stationform">
+	{% for station in stations %}
+	  <option value={{station.id}} >{{station.name}}</option>
+	{% endfor %}
+	</select>
+	<input class="btn btn-default" type="submit" value="Select">
+
+</form>
+{% endif %}
+<a class="btn btn-default "href="/webprofile">Back</a>
+</ul>
+{% endblock content %}

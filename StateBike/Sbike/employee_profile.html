@@ -1,0 +1,26 @@
+{% extends 'Sbike/base.html' %}
+
+{% block title %} Employee Profile {% endblock title %}
+
+{% block content %}
+
+<h1>Employee Profile - {{ username }} </h1>
+<hr />
+<h2>Personal Data</h2>
+<hr />
+
+<div id="admin-actions">
+    <ul>
+      <li><a href="/employeeconsult/">Consult Bicycles</a></li>
+      <li><a href="/setstatus/">Repair / Set As Broken Bicycles</a></li>
+    </ul>
+</div>
+
+<ul>
+  <li><strong>Name:</strong> {{ fname }} {{ lname }}</li>
+  <li><strong>DNI:</strong> {{ dni }}</li>
+  <li><strong>Phone Number:</strong> {{ phone }}</li>
+  <li><strong>Email:</strong> {{ email }}</li>
+</ul>
+
+{% endblock content %}
